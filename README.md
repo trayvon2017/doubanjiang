@@ -1,2 +1,3 @@
 # doubanjiang
-基于豆瓣api的影视网站
+豆瓣api的影视网站
+基于vue
