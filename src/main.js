@@ -26,6 +26,8 @@ import router from './router.js'
 // import Vue from 'vue'
 import 'element-ui/lib/theme-chalk/index.css';
 import { Rate,Pagination } from 'element-ui'
+import * as Sentry from '@sentry/browser'
+import * as Integrations from '@sentry/integrations'
 Vue.component(Rate.name,Rate)
 Vue.component(Pagination.name,Pagination)
 //引入mintui
@@ -39,7 +41,17 @@ Vue.use(iView)
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
-
+Sentry.init({
+    dsn: 'http://ba536a1442f24ebaadbd1b45c58c7424@192.168.68.128:9000/2',
+    integrations: [
+        new Integrations.Vue({
+            Vue,
+            attachProps: true
+        })
+    ]
+})
+let a
+console.log(a.ss)
 var store = new Vuex.Store({
     state:{
         navHeight:0, //顶栏的高度
